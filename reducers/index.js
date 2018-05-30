@@ -1,17 +1,42 @@
-import { GET_REPOS } from '../actions';
+import { LOADING_RESOURCE,
+         LOADED_RESOURCE,
+         LOAD_RESOURCE_ERROR } from '../actions';
+
+export const updateObj = (obj, props) => {
+  return Object.assign({}, obj, props);
+};
+
+const nullRes = { status: null, data: null };
 
 const initialState = {
-  repos: []
+  waiting: false,
+  response: nullRes,
+  error: null
 };
 
-export default function(state = initialState, action) {
-  if (action.type === GET_REPOS) {
-    return {
-      repos: [
-        { name: "Repo 1", language: "Haskell" },
-        { name: "Repo 2", language: "Ruby" }
-      ]
-    };
-  }
-  return state;
+const loadResourceReducer = (state = initialState, action) => {
+  switch (action.type) {
+  case LOADING_RESOURCE:
+    return updateObj(state, {
+      waiting: true,
+      response: nullRes,
+      error: null
+    });
+  case LOADED_RESOURCE:
+    return updateObj(state, {
+      waiting: false,
+      response: { data: action.data, status: action.status },
+      error: null
+    });
+  case LOAD_RESOURCE_ERROR:
+    return updateObj(state, {
+      response: nullRes,
+      error: action.error,
+      waiting: false
+    });
+  default:
+    return state;
+  };
 };
+
+export default loadResourceReducer;
