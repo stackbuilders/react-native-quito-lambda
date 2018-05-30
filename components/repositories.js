@@ -1,5 +1,6 @@
 import React from "react";
 import { ScrollView, Text } from "react-native";
+import * as NB from "native-base";
 
 import Repository from "./repository";
 
@@ -29,9 +30,18 @@ export default class Repositories extends React.Component {
     const { response, error, waiting } = this.props;
 
     return (
-      <ScrollView contentContainerStyle={style}>
-	{renderRepos(response, waiting, error)}
-      </ScrollView>
+      <NB.Container>
+        <NB.Header>
+          <NB.Body>
+            <NB.Title>Repositories</NB.Title>
+          </NB.Body>
+        </NB.Header>
+        <NB.Content>
+          <NB.List>
+            {renderRepos(response, waiting, error)}
+          </NB.List>
+        </NB.Content>
+      </NB.Container>
     );
   }
 }
