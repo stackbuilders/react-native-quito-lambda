@@ -11,6 +11,10 @@ const repo = {
 };
 const reqError = 'Some error';
 
+const successfulRequest = () => Promise.resolve({ status: statusOk, repos: [] });
+const failedRequest = () => Promise.reject(reqError);
+export const mockDispatch = x => Promise.resolve(x);
+
 describe('LoadResource actions', () => {
   test('loadingResource returns a correct LOADING_RESOURCE action', () => {
     expect(resource.loadingResource())
@@ -29,6 +33,18 @@ describe('LoadResource actions', () => {
     expect(resource.loadResourceError(reqError)).toEqual({
       error: reqError,
       type: resource.LOAD_RESOURCE_ERROR
+    });
+  });
+
+  describe('loadRepos', () => {
+    it('dispatches LOADED_RESOURCE when successful', () => {
+      const loadRepos = resource.loadRepos_(successfulRequest)();
+      return loadRepos(mockDispatch)
+        .then(action => expect(action).toEqual({
+	  data: [],
+	  status: statusOk,
+	  type: resource.LOADED_RESOURCE
+	}));
     });
   });
 });
