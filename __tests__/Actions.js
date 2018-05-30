@@ -47,4 +47,14 @@ describe('LoadResource actions', () => {
 	}));
     });
   });
+
+  it('dispatches LOAD_RESOURCE_ERROR when the request fails', () => {
+    const loadRepos =
+	    resource.loadRepos_(failedRequest)();
+    return loadRepos(mockDispatch)
+      .then(action => expect(action).toEqual({
+	error: reqError,
+	type: resource.LOAD_RESOURCE_ERROR
+      }));
+  });
 });
