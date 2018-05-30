@@ -8,7 +8,7 @@ import reducers from "./reducers";
 
 const middlewares = applyMiddleware(thunkMiddleware);
 
-const store = createStore(reducers);
+const store = createStore(reducers, middlewares);
 
 export default class App extends React.Component {
   state = { loading: true }
