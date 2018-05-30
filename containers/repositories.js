@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import Repositories from "../components/repositories";
-import { getRepos } from "../actions";
+import { loadRepos } from "../actions";
 
 const mapStateToProps = state => {
   return {
@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getRepos: () => dispatch(getRepos())
+    getRepos: () => dispatch(loadRepos())
   };
 };
 
