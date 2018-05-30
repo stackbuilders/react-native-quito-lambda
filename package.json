@@ -2,8 +2,9 @@
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "scripts": {
+    "start": "exp start",
     "start_ios": "exp start --ios",
-    "start": "exp start"
+    "test": "jest"
   },
   "dependencies": {
     "expo": "^27.0.1",
@@ -15,6 +16,14 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "exp": "^54.0.1"
+    "exp": "^54.0.1",
+    "jest": "22.1.4",
+    "babel-jest": "22.1.0"
+  },
+  "jest": {
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-navigation)"
+    ]
   }
 }
