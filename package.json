@@ -18,7 +18,8 @@
   "devDependencies": {
     "exp": "^54.0.1",
     "jest": "22.1.4",
-    "babel-jest": "22.1.0"
+    "babel-jest": "22.1.0",
+    "react-test-renderer": "16.2.0"
   },
   "jest": {
     "preset": "react-native",
