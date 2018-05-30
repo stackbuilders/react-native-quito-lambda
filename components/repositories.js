@@ -10,7 +10,7 @@ export default class Repositories extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={{ flex: 1, flexDirection: "column" }}>
         {this.props.repos.map((repo, i) =>
           <Repository key={i} repo={repo} />
         )}
