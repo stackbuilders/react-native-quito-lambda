@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
+import * as NB from "native-base";
 
 import Repository from "./repository"
 
@@ -10,14 +11,22 @@ export default class Repositories extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1, flexDirection: "column", paddingLeft: 10 }}>
-        <View>
-          <Text style={{ paddingTop: 40, fontSize: 30, fontWeight: "800" }}>Repositories</Text>
-        </View>
-        {this.props.repos.map((repo, i) =>
-          <Repository key={i} repo={repo} />
-        )}
-      </View>
+      <NB.Container>
+        <NB.Header>
+          <NB.Left />
+          <NB.Body>
+            <NB.Title>Repositories</NB.Title>
+          </NB.Body>
+          <NB.Right />
+        </NB.Header>
+        <NB.Content>
+          <NB.List>
+            {this.props.repos.map((repo, i) =>
+              <Repository key={i} repo={repo} />
+            )}
+          </NB.List>
+        </NB.Content>
+      </NB.Container>
     );
   }
 }
