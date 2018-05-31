@@ -1,5 +1,7 @@
 # React Native Quito Lambda
 
+[![Build Status](https://travis-ci.org/stackbuilders/react-native-quito-lambda.svg?branch=master)](https://travis-ci.org/stackbuilders/react-native-quito-lambda)
+
 A simple [React Native][react-native] GitHub client, that illustrates how to
 use React Native in combination with [Redux][redux].
 
