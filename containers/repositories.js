@@ -1,17 +1,29 @@
 import { connect } from "react-redux";
 
 import Repositories from "../components/repositories";
-import { getRepos } from "../actions";
+import { loadRepos } from "../actions";
 
-const mapStateToProps = state => {
+const getNameAndLanguage = obj => {
   return {
-    repos: state.repos
+    name: obj.name,
+    language: obj.language
+  };
+};
+
+const mapStateToProps = ({ waiting, response, error }) => {
+  const data = response.data;
+  const simplifiedRepos = !data ? null : data.map(getNameAndLanguage);
+
+  return {
+    waiting,
+    response: { status: response. status, data: simplifiedRepos },
+    error
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    getRepos: () => dispatch(getRepos())
+    loadRepos: () => dispatch(loadRepos())
   };
 };
 
