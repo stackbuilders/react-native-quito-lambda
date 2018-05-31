@@ -1,9 +1,25 @@
 {
+  "name": "react-native-quito-lambda",
+  "version": "0.0.1",
+  "description": "Simple React Native + Redux GitHub client",
+  "keywords": [
+    "react-native",
+    "redux"
+  ],
+  "homepage": "https://www.meetup.com/Quito-Lambda-Meetup/events/250149099",
+  "license": "MIT",
+  "repository": "github:stackbuilders/react-native-quito-lambda",
+  "author": "Sebastián Pulido <spulido@stackbuilders.com>",
+  "contributors": [
+    "Sebastián Estrella <sestrella@stackbuilders.com>"
+  ],
+  "engines": {
+    "node": ">= 8"
+  },
   "main": "node_modules/expo/AppEntry.js",
-  "private": true,
   "scripts": {
     "start": "exp start",
-    "start_ios": "exp start --ios",
+    "start:ios": "exp start --ios",
     "test": "jest"
   },
   "dependencies": {
